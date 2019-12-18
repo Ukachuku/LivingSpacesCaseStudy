@@ -15,3 +15,5 @@ Assume that the snapshots below are for two of our customer segments (all custom
   - getting married
   - first child
   - buying first home
+
+###### Link to help rid of backgrounds: https://www6.lunapic.com/editor/?action=save

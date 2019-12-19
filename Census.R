@@ -1,13 +1,20 @@
 # Add key to .Renviron
-Sys.setenv(CENSUS_KEY='cd07c7804e7c31c051387d8488762fd7314b057e')
+Sys.setenv(CENSUS_KEY='')
 # Reload .Renviron
 readRenviron("~/.Renviron")
 # Check to see that the expected key is output
 Sys.getenv("CENSUS_KEY")
 
-library(censusapi)
+library(tidycensus)
+census_api_key("")
+library(mapview)
+options(tigris_use_cache = TRUE)
 
-#dataframe of acs variables
-#census_vars <- listCensusMetadata(name = 'acs/acs1', vintage = '2018', type = 'variables')
+#Females now married. Includes people whose current marriage has not ended through widowhood, divorce, or separation
+FemaleNowMarried <- get_acs(geography = "tract", 
+              variables = "B12001_013E", 
+              state = "CA", 
+              county = "Los Angeles", 
+              geometry = TRUE)
 
-censusapi::getCensus(name = 'acs5', vintage = '2018', vars = , region = 'county:')
+mapview(LA, zcol = "estimate", legend = TRUE)
